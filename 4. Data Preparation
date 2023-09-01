@@ -1,0 +1,23 @@
+#Penghilangan Kolom
+X = data.drop(['Agama', 'Ketahanan_Pangan', 'Pancasila', 'Pendidikan_Kewarganegaraan',
+              'Studi_Kebantenan', 'Tata_Tulis_dan_Komunikasi_Ilmiah', 'Kuliah_Kerja_Mahasiswa',
+              'Seminar_Pendidikan_Agama', 'Status_Kelulusan'], axis=1)
+y = data['Status_Kelulusan']
+X.head(5)
+
+# Memeriksa missing values dalam DataFrame 'data'
+missing_values = data.isna()
+
+# Menampilkan jumlah missing values untuk setiap kolom
+missing_count = missing_values.sum()
+print(missing_count)
+
+#Korelasi
+cor = X.corr()
+cor
+
+#Heatmap
+plt.figure(figsize=(20, 20))
+sns.heatmap(data = cor, cmap = 'mako', center = 0)
+plt.title('Korelasi Mata Kuliah Wajib TI UNTIRTA')
+plt.show()
