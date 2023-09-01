@@ -1,0 +1,44 @@
+#Uji coba test size dari 0,1 hingga 0,5
+#Disini hanya memasukkan codiing test_size 0,1 
+
+# Pisahkan data menjadi data latih (90%) dan data uji (10%)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.1, random_state=42)
+
+# Inisialisasi model Decision Tree
+tree_model = DecisionTreeClassifier(random_state=42)
+tree_model.fit(X_train, y_train)
+y_pred_tree = tree_model.predict(X_test)
+
+# Inisialisasi model Random Forest
+rf_model = RandomForestClassifier(random_state=42)
+rf_model.fit(X_train, y_train)
+y_pred_rf = rf_model.predict(X_test)
+
+# Inisialisasi model Support Vector Machine
+svm_model = SVC(random_state=42)
+svm_model.fit(X_train, y_train)
+y_pred_svm = svm_model.predict(X_test)
+
+# Inisilaisasi model Naive Bayes
+NB_model = GaussianNB()
+NB_model.fit(X_train, y_train)
+y_pred_NB = NB_model.predict(X_test)
+
+# Inisialisasi model KNN
+KNN_model = KNeighborsClassifier(n_neighbors=3)
+KNN_model.fit(X_train, y_train)
+y_pred_KNN = KNN_model.predict(X_test)
+
+# Hitung metrik evaluasi untuk masing-masing model
+report_tree = classification_report(y_test, y_pred_tree)
+report_rf = classification_report(y_test, y_pred_rf)
+report_svm = classification_report(y_test, y_pred_svm)
+report_NB = classification_report(y_test, y_pred_NB)
+report_KNN = classification_report(y_test, y_pred_KNN)
+
+# Cetak hasil
+print("Classification Report - Decision Tree:\n", report_tree)
+print("\nClassification Report - Random Forest:\n", report_rf)
+print("\nClassification Report - Support Vector Machine:\n", report_svm)
+print("\nClassification Report - Naive Bayes:\n", report_NB)
+print("\nClassification Report - KNN:\n", report_KNN)
