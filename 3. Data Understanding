@@ -1,0 +1,11 @@
+#Descriptive Statistic
+data.describe()
+
+#Jenis tipe data
+data.dtypes
+
+#Menghitung berapa banyak mahasiswa lulus tepat waktu dan tidak lulus tepat waktu
+Jumlah_Mahasiswa_Lulus_Tepat_Waktu = data['Status_Kelulusan'].value_counts()[1]
+Jumlah_Mahasiswa_Tidak_Lulus_Tepat_Waktu = data['Status_Kelulusan'].value_counts()[0]
+print("Jumlah Mahasiswa Lulus Tepat Waktu:", Jumlah_Mahasiswa_Lulus_Tepat_Waktu)
+print("Jumlah Mahasiswa Tidak Lulus Tepat Waktu:", Jumlah_Mahasiswa_Tidak_Lulus_Tepat_Waktu)
