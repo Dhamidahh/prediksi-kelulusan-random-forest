@@ -1,0 +1,3 @@
+#Masukkan file data csv
+data = pd.read_csv("Kelulusan Mahasiswa TI UNTIRTA.csv")
+data.head(5)
